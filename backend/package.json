@@ -1,0 +1,30 @@
+{
+  "name": "clariflow-backend",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "tsc",
+    "dev": "npm run build && node server.js",
+    "start": "node server.js",
+    "test": "node --test test/*.test.js",
+    "postinstall": "prisma skills sync || exit 0"
+  },
+  "dependencies": {
+    "@prisma/orm-postgres": "^8.0.0-rc.16",
+    "cors": "latest",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "node-telegram-bot-api": "^0.66.0",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "@prisma/cli-engine": "^0.6.3",
+    "@types/cors": "latest",
+    "@types/express": "latest",
+    "@types/node": "^26.6.4",
+    "@types/pg": "^8.11.0",
+    "prisma": "^8.0.0-rc.21",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}
