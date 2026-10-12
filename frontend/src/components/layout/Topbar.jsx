@@ -31,8 +31,8 @@ export default function Topbar() {
   function submit(e) {
     e.preventDefault()
     const trimmed = value.trim()
-    if (!trimmed) return navigate('/orders')
-    navigate(`/orders/${encodeURIComponent(trimmed)}`)
+    if (!trimmed) return navigate('/app/orders')
+    navigate(`/app/orders/${encodeURIComponent(trimmed)}`)
     setValue('')
     inputRef.current?.blur()
   }
@@ -40,7 +40,7 @@ export default function Topbar() {
   return (
     <header ref={navRef} className="sticky top-0 z-20 h-[70px] border-b border-edge bg-void/70 backdrop-blur-2xl">
       <div className="mx-auto flex h-full max-w-[1600px] items-center justify-between gap-4 px-6 sm:px-8">
-        <Link to="/" className="lg:hidden" aria-label="ClariFlow home">
+        <Link to="/" className="lg:hidden" aria-label="GhostFilter home">
           <Logo />
         </Link>
 

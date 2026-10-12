@@ -11,7 +11,7 @@ const byKind = {
   network: { icon: WifiOff, title: "You're offline", hint: 'Check your internet connection and try again.' },
   timeout: { icon: WifiOff, title: 'The request timed out', hint: 'The server took too long to respond.' },
   server: { icon: ServerCrash, title: 'The server hit a problem', hint: 'This is on the backend side. Try again in a moment.' },
-  invalid: { icon: FileWarning, title: 'Unexpected response', hint: 'The API replied, but not in the format ClariFlow expects.' },
+  invalid: { icon: FileWarning, title: 'Unexpected response', hint: 'The API replied, but not in the format GhostFilter expects.' },
   not_found: { icon: SearchX, title: 'Not found', hint: null },
 }
 const fallback = { icon: TriangleAlert, title: 'Something went wrong', hint: null }

@@ -15,8 +15,8 @@ export default function NotFound() {
         description="That page doesn't exist. Head back to the overview or look up an order."
         action={
           <div className="flex gap-2">
-            <Button as={Link} to="/" size="sm">Go to Overview</Button>
-            <Button as={Link} to="/orders" variant="secondary" size="sm">Find an order</Button>
+            <Button as={Link} to="/app" size="sm">Go to Dashboard</Button>
+            <Button as={Link} to="/app/orders" variant="secondary" size="sm">Find an order</Button>
           </div>
         }
         className="py-20"

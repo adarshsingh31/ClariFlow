@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { motion } from 'motion/react'
 import Logo from './Logo'
 import { NAV } from './nav'
@@ -8,7 +8,9 @@ export default function Sidebar() {
   return (
     <aside className="flex h-full w-[220px] flex-col border-r border-edge bg-void/70 backdrop-blur-2xl">
       <div className="flex h-[70px] items-center px-5">
-        <Logo />
+        <Link to="/" title="Back to Landing page">
+          <Logo />
+        </Link>
       </div>
 
       <nav aria-label="Main" className="mt-2 flex-1 px-3">

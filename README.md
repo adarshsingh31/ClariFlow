@@ -38,13 +38,16 @@ The platform provides live telemetry, order lookup, timeline tracking, and custo
 ## ⚡ Quick Start
 
 ### 1. Prerequisites
+
 - [Node.js](https://nodejs.org/) (v18.0.0 or higher)
 - [Docker Desktop](https://www.docker.com/) (recommended for PostgreSQL container)
 
 ### 2. Environment Configuration
 
 #### Backend (`backend/.env`)
+
 Create `backend/.env` (reference: `backend/.env.example`):
+
 ```env
 PORT=5000
 DATABASE_URL="postgresql://clariflow:clariflow_password@localhost:5432/clariflow"
@@ -52,7 +55,9 @@ BOT_TOKEN="your_telegram_bot_token_here"
 ```
 
 #### Frontend (`frontend/.env`)
+
 Optional override for backend URL (defaults to `http://localhost:5000`):
+
 ```env
 VITE_API_BASE_URL="http://localhost:5000"
 ```
@@ -62,11 +67,13 @@ VITE_API_BASE_URL="http://localhost:5000"
 ### 3. Start PostgreSQL Database
 
 Using Docker Compose:
+
 ```bash
 docker compose up -d postgres
 ```
 
 Verify PostgreSQL is running:
+
 ```bash
 docker compose ps
 ```
@@ -76,6 +83,7 @@ docker compose ps
 ### 4. Seed Database with Test Orders
 
 Run the database seed script to populate sample products and orders (`ORD-TEST-200`, `ORD-8821`, `ORD-4092`):
+
 ```bash
 cd backend
 node seed.js
@@ -90,6 +98,7 @@ cd backend
 npm install
 npm run dev
 ```
+
 Backend will start at `http://localhost:5000`.
 
 ---
@@ -97,11 +106,13 @@ Backend will start at `http://localhost:5000`.
 ### 6. Launch the Frontend
 
 In a new terminal:
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
+
 Open `http://localhost:5173` in your browser.
 
 ---
@@ -109,21 +120,27 @@ Open `http://localhost:5173` in your browser.
 ## 🧪 Testing & Verification
 
 ### Backend Tests (10/10 Passing)
+
 Includes unit and API integration tests covering valid order queries, whitespace handling (`400`), missing orders (`404`), and database disconnection resilience (`503`):
+
 ```bash
 cd backend
 npm test
 ```
 
 ### Frontend Tests (17/17 Passing)
+
 Tests order payload normalization, tone mapping, currency and relative time formatters, and LiquidGL shaders:
+
 ```bash
 cd frontend
 npm test
 ```
 
 ### Production Build
+
 Verify clean compilation of the frontend production bundle:
+
 ```bash
 cd frontend
 npm run build
@@ -134,8 +151,11 @@ npm run build
 ## 📡 API Contract
 
 ### `GET /`
+
 Returns service status and health.
+
 - **Response:** `200 OK`
+
 ```json
 {
   "message": "ClariFlow Backend Running"
@@ -143,7 +163,9 @@ Returns service status and health.
 ```
 
 ### `GET /api/orders/:orderNumber`
+
 Lookup an order by order number.
+
 - **Responses:**
   - `200 OK`: Returns order details.
     ```json
@@ -152,7 +174,7 @@ Lookup an order by order number.
       "orderNumber": "ORD-TEST-200",
       "customerName": "Alex Rivera",
       "status": "DELIVERED",
-      "totalAmount": 200.00,
+      "totalAmount": 200.0,
       "createdAt": "2026-10-09T18:00:00.000Z",
       "updatedAt": "2026-10-11T18:00:00.000Z"
     }
@@ -175,6 +197,7 @@ Lookup an order by order number.
 ## 🤖 Telegram Bot Integration
 
 The backend initializes Telegram Bot polling using `node-telegram-bot-api` when `BOT_TOKEN` is supplied:
+
 1. Send `/start` to the bot for greeting and command instructions.
 2. Send `/order <orderNumber>` (e.g. `/order ORD-TEST-200`) to check live status directly within Telegram.
 3. On process termination (`SIGTERM`, `SIGINT`), polling is gracefully stopped to avoid connection hanging.
@@ -187,3 +210,5 @@ The backend initializes Telegram Bot polling using `node-telegram-bot-api` when 
 2. **Support Page Marked PREVIEW:** As backend conversation endpoints and chat histories are not yet implemented, the Support page is clearly labeled with a warning banner indicating that it is an interactive preview.
 3. **Database Unavailable Resilience:** If PostgreSQL is offline, both backend and frontend fail gracefully with clear diagnostic messages and retry buttons rather than unhandled promise crashes.
 4. **Liquid Glass Design System:** Real-time glassmorphism, responsive navigation rail, collapsible search shortcuts (`/`), and WebGL canvas with automatic `IntersectionObserver` frame pausing.
+
+Adarsh Singh

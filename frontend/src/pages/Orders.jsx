@@ -281,7 +281,7 @@ export default function Orders() {
                 </h3>
                 <p className="mt-1 text-xs text-slate-400 max-w-sm mx-auto">
                   {orders.length === 0
-                    ? 'ClariFlow queries live PostgreSQL records on-demand via the backend API. Search for an order or try one of the seeded test records:'
+                    ? 'GhostFilter queries live PostgreSQL records on-demand via the backend API. Search for an order or try one of the seeded test records:'
                     : `No orders match "${searchQuery || activeTab}". Try adjusting your filters or search term.`}
                 </p>
                 <div className="mt-4 flex flex-wrap items-center justify-center gap-2">

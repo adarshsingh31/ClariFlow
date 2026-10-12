@@ -239,7 +239,7 @@ export default function Overview() {
           Not available yet
         </h2>
         <p className="mt-1 max-w-2xl text-sm text-slate-400">
-          These need data the backend doesn't expose today. ClariFlow shows no numbers for them instead of made-up ones.
+          These need data the backend doesn't expose today. GhostFilter shows no numbers for them instead of made-up ones.
         </p>
         <div className="mt-5 grid gap-4 md:grid-cols-3">
           {UNAVAILABLE.map(({ icon: Icon, label, reason }) => (

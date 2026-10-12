@@ -10,7 +10,7 @@ export default function Logo({ className = '' }) {
           <circle cx="16" cy="11" r="1.8" fill="#ffffff" />
         </svg>
       </span>
-      <span className="font-display text-[18px] font-semibold tracking-tight text-white">ClariFlow</span>
+      <span className="font-display text-[18px] font-semibold tracking-tight text-white">GhostFilter</span>
     </div>
   )
 }
